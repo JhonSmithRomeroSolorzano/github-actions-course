@@ -1,0 +1,12 @@
+name: Learning GitHub Actions #Nombre del workflow
+run-name: I'm learning GitHub Actions #Nombre del run
+on:
+  hola-mundo: #Evento personalizado
+    runs-on: ubuntu-latest #Sistema operativo donde se ejecutará el workflow
+    steps:
+      - name: Checkout repository #Paso para hacer checkout del repositorio
+        uses: actions/checkout@v3 #Acción para hacer checkout del repositorio
+      - name: Define variable #Paso para definir una variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Print greeting #Paso para imprimir un saludo
+        run: node index.js #Ejecuta el script de Node.js
